@@ -37,7 +37,7 @@ chmod +x ./stock_trader.sh
 - [x] Sell stocks 
 - [ ] Fetch real time data of stocks through an API
 - [ ] Modularize script for readability
-- [ ] Hide DB files
+- [x] Hide DB files
 
 ## Contributing
 
