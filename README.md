@@ -14,7 +14,7 @@ A bash program that simulates stock trading.
 ## Clone
 
 ```bash
-git clone 
+git clone https://github.com/CSjianbel/Stock-Trading-CLI-Simulator.git
 ```
 
 ## Usage 
