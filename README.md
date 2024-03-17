@@ -29,9 +29,15 @@ chmod +x ./stock_trader.sh
 
 ## Todo
 
-[ ] - Fetch real time data of stocks through an API
-[ ] - Modularize script for readability
-[ ] - Hide DB files
+- [x] View balance (initially $10,000)
+- [x] View transactions
+- [x] View portfolio
+- [x] Fetch stock price
+- [x] Buy stocks 
+- [x] Sell stocks 
+- [ ] Fetch real time data of stocks through an API
+- [ ] Modularize script for readability
+- [ ] Hide DB files
 
 ## Contributing
 
