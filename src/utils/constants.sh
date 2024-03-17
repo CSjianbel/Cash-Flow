@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Constants
-USER_ACCOUNT_FILE="user_account.txt"
-TRANSACTION_LOG="transaction_log.txt"
-PORTFOLIO_FILE="portfolio.txt"
+USER_ACCOUNT_FILE=".stock_trader_user_account.txt"
+TRANSACTION_LOG=".stock_trader_transaction_log.txt"
+PORTFOLIO_FILE=".stock_trader_portfolio.txt"
 
