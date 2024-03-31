@@ -19,27 +19,31 @@ main() {
     clear
     echo "Welcome to the stock trading simulator!"
     echo "1. Display account balance"
-    echo "2. View transactions"
-    echo "3. View portfolio"
-    echo "4. Fetch stock prices"
-    echo "5. Buy stocks"
-    echo "6. Sell stocks"
-    echo "7. Exit"
+    echo "2. Add account balance"
+    echo "3. View transactions"
+    echo "4. View portfolio"
+    echo "5. Fetch stock prices"
+    echo "6. Buy stocks"
+    echo "7. Sell stocks"
+    echo "8. Exit"
 
     read -p "Enter your choice: " choice
 
     case $choice in
-      1) display_account_balance ;;
-      2) view_transactions ;;
-      3) view_portfolio ;;
-      4) fetch_stock_data ;;
-      5) read -p "Enter stock symbol: " symbol
-         read -p "Enter quantity: " quantity
-         buy_stock "$symbol" "$quantity" ;;
+      1) account_balance=$(display_account_balance)
+         echo "Your current account balance is \$${account_balance}" ;;
+      2) read -p "Enter amount to add: " amount
+         add_account_balance "$amount" ;;
+      3) view_transactions ;;
+      4) view_portfolio ;;
+      5) fetch_stock_data ;;
       6) read -p "Enter stock symbol: " symbol
          read -p "Enter quantity: " quantity
+         buy_stock "$symbol" "$quantity" ;;
+      7) read -p "Enter stock symbol: " symbol
+         read -p "Enter quantity: " quantity
          sell_stock "$symbol" "$quantity" ;;
-      7) echo "Exiting program..."
+      8) echo "Exiting program..."
          exit ;;
       *) echo "Invalid option. Please choose again." ;;
     esac
@@ -59,7 +63,16 @@ fetch_stock_data() {
 }
 
 display_account_balance() {
-  echo "Your account balance is: \$$(<"$USER_ACCOUNT_FILE")"
+  echo "$(<"$USER_ACCOUNT_FILE")"
+}
+
+add_account_balance() {
+  amount=$1
+  current_balance=$(display_account_balance)
+
+  new_balance=$(echo "$amount" + "$current_balance" | bc)
+
+  echo "$new_balance" > "$USER_ACCOUNT_FILE"
 }
 
 view_transactions() {
