@@ -1,13 +1,10 @@
 #!/bin/bash
 
 fetch_stock_data() {
-  aapl=$(get_random_value)
-  googl=$(get_random_value)
-  msft=$(get_random_value)
+  python3 ./scripts/scraper.py
 
-  echo "AAPL: $aapl"
-  echo "GOOGL: $googl"
-  echo "MSFT: $msft"
+  # reformat csv file such that it only contains the symbol and current price
+  awk -F '\t' 'NR>1 {gsub(/[%()]/,"",$3); print $1 ": " $3}' .stock_data.csv
 }
 
 buy_stock() {

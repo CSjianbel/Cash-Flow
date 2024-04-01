@@ -18,8 +18,8 @@ def scrape_stock_data(url):
     for row in rows:
         row[2] = row[2].split(' ')[0]
 
-    with open('stock_data.csv', 'w', newline='') as csv_file:
-        writer = csv.writer(csv_file)
+    with open('.stock_data.csv', 'w', newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter='\t')
         writer.writerow(headers)
         writer.writerows(row for row in rows if row)
 
