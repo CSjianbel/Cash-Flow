@@ -63,7 +63,7 @@ sell_stock() {
       if [ "$new_quantity" -eq 0 ]; then
         sed -i "/$stock_symbol/d" "$PORTFOLIO_FILE"
       else
-        sed -i "s/$stock_symbol $old_quantity/$stock_symbol $new_quantity/" "$PORTFOLIO_FILE"
+        sed -i "s/$stock_symbol: $old_quantity/$stock_symbol: $new_quantity/" "$PORTFOLIO_FILE"
       fi
 
       echo "$new_balance" > "$USER_ACCOUNT_FILE"
